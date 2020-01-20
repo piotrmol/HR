@@ -8,5 +8,27 @@
 
 import Foundation
 
-print("Hello, World!")
+private let console = Console()
+private let employeesRepo = EmployeesRepository()
 
+func start() {
+    var option = -1
+    
+    while option != 3 {
+        console.printMenu()
+        let choice = readLine() ?? ""
+        option = Int(choice) ?? -1
+        
+        switch option {
+        case 1:
+            employeesRepo.createEmployee()
+        case 2:
+            employeesRepo.listEmployees()
+        default:
+            continue
+        }
+        
+    }
+}
+
+start()
